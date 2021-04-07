@@ -97,7 +97,6 @@ registerRoute(
     cacheName: "apiimage",
     plugins: [
       new ExpirationPlugin({
-        maxAgeSeconds: 360,
         maxEntries: 30,
       }),
     ],
