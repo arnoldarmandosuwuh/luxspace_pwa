@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Arrived from "./components/Arrived";
 import AsideMenu from "./components/AsideMenu";
 import Browse from "./components/Browse";
@@ -7,6 +8,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Offline from "./components/Offline";
+import Profile from "./pages/Profile";
 import Splash from "./pages/Splash";
 
 const App = () => {
@@ -72,4 +74,12 @@ const App = () => {
   );
 };
 
-export default App;
+const Routes = () => {
+  return (
+    <Router>
+      <Route path="/" exact component={App} />
+      <Route path="/profile" exact component={Profile} />
+    </Router>
+  );
+};
+export default Routes;
