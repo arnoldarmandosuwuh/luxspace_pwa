@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-const Header = () => {
+const Header = ({ mode }) => {
   return (
-    <header className="absolute w-full z-50 px-4">
+    <header
+      className={`${mode === "light" ? "absolute" : ""} w-full z-50 px-4`}
+    >
       <div className="container mx-auto py-5">
         <div className="flex flex-stretch items-center">
           <div className="w-56 items-center flex">
             <img
-              src="images/content/logo.png"
+              src="../images/content/logo.png"
               alt="Luxspace | Fulfill your house with beautiful furniture"
             />
           </div>
@@ -19,7 +21,9 @@ const Header = () => {
               <li className="mx-3 py-6 md:py-0">
                 <a
                   href="/"
-                  className="text-black md:text-white hover:underline"
+                  className={`text-black ${
+                    mode === "light" ? "md:text-white" : "md:text-black"
+                  } hover:underline`}
                 >
                   Showcase
                 </a>
@@ -27,7 +31,9 @@ const Header = () => {
               <li className="mx-3 py-6 md:py-0">
                 <a
                   href="/"
-                  className="text-black md:text-white hover:underline"
+                  className={`text-black ${
+                    mode === "light" ? "md:text-white" : "md:text-black"
+                  } hover:underline`}
                 >
                   Catalog
                 </a>
@@ -35,7 +41,9 @@ const Header = () => {
               <li className="mx-3 py-6 md:py-0">
                 <a
                   href="/"
-                  className="text-black md:text-white hover:underline"
+                  className={`text-black ${
+                    mode === "light" ? "md:text-white" : "md:text-black"
+                  } hover:underline`}
                 >
                   Delivery
                 </a>
@@ -43,7 +51,7 @@ const Header = () => {
               <li className="mx-3 py-6 md:py-0">
                 <Link
                   to="/profile"
-                  className="text-black md:text-white hover:underline"
+                  className={`text-black md:text-white hover:underline`}
                 >
                   Profile
                 </Link>
@@ -72,7 +80,9 @@ const Header = () => {
               <li className="ml-6">
                 <a
                   id="header-cart"
-                  className="flex items-center justify-center w-8 h-8 text-black md:text-white"
+                  className={`flex items-center justify-center w-8 h-8 text-black ${
+                    mode === "light" ? "md:text-white" : "md:text-black"
+                  }`}
                   href="cart.html"
                 >
                   <svg
