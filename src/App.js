@@ -77,12 +77,14 @@ const App = ({ cart }) => {
 };
 
 const Routes = () => {
+  const cachedCart = window.localStorage.getItem("cart");
   const [cart, setCart] = useState([]);
 
   const handleAddToCart = (item) => {
     const currentIndex = cart.length;
     const newCart = [...cart, { id: currentIndex + 1, item }];
     setCart(newCart);
+    window.localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
   const handleRemoveCartItem = (event, id) => {
@@ -90,7 +92,15 @@ const Routes = () => {
       return item.id !== id;
     });
     setCart(revisedCart);
+    window.localStorage.setItem("cart", JSON.stringify(revisedCart));
   };
+
+  useEffect(() => {
+    if (cachedCart !== null) {
+      setCart(JSON.parse(cachedCart));
+    }
+  }, [cachedCart]);
+
   return (
     <Router>
       <Route path="/" exact>
